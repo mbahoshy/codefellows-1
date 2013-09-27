@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+
+<html lang="en-US">
+<head>
+	<script src="librarymodel.js"></script>
+</head>
+<body>
+	<script>
+		//create a new library
+		Library1 = new Library ();
+
+		//create new shelves (shelf_title, shelf_genre)
+		Library1.addShelf('Shelf1', 'Horror');
+		Library1.addShelf('Shelf2', 'Horror');
+		Library1.addShelf('Shelf3', 'Sci-Fi');
+		Library1.addShelf('Shelf4', 'Romance');
+
+		//add books to library (book_title, book_author, book_shelf)
+		Library1.addBook('The History of Sexuality, Vol. 1', 'Michel Foucault', '');
+		Library1.addBook('The Turn of the Screw', 'Henry James', 'Shelf1');
+		Library1.addBook('Something Wicked This Way Comes', 'Ray Bradbury', 'Shelf1');
+		Library1.addBook('Frankenstein', 'Mary Shelley', 'Shelf2');
+
+		Library1.addBook('Dracula', 'Bram Stoker', 'Shelf2');
+		Library1.addBook('Fahrenheit 451: A Novel', 'Ray Bradbury', 'Shelf3');
+		Library1.addBook('Jane Eyre', 'Charlotte Bronte', 'Shelf4');
+		Library1.addBook('The Lord of the Rings', 'J.R.R. Tolkien', 'Shelf3');
+
+		//reportBooks method takes two arguements - the property of the book object you wish to search for, and the value that property should be
+		x = Library1.reportBooks('bookshelf', 'shelf1'); //returns array of book objects located on 'Shelf1'
+
+		y = Library1.reportBooks('bookauthor', 'Charles Dickens'); //returns array of book objects whose author is 'Charles Dickens'
+
+		z = Library1.reportBooks('all'); //uses 'all' keyword and returns array of all book objects
+		
+		
+		//reportShelf method takes two arguements - the property of the shelf object you wish to search for, and the value that property should be
+		a = Library1.reportShelf('genre', 'horror'); //returns array of all shelf objects that are genre 'horror'
+
+		b = Library1.reportShelf('all'); //returns array of all shelf objects
+
+		num_shelves = b.length; //the number of shelves in the library
+
+		//finds book with title '' and moves to shelf ''
+		m = Library1.reportBooks('booktitle', 'The History of Sexuality, Vol. 1');
+		m[0].enshelf('Shelf4');
+
+		//finds book with title '' and takes off shelf ''
+		n = Library1.reportBooks('booktitle', 'Dracula');
+		n[0].unshelf('Shelf1');
+
+	</script>
+</body>
+</html>
