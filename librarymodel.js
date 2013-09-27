@@ -34,7 +34,7 @@ function Library () {
 	//method to return a certain property of all shelves
 	this.reportShelf = function (shelf_property, shelf_condition) {
 		tmp_array = [];
-		if (shelf_property == 'all') {
+		if (shelf_property.toUpperCase() == 'ALL') {
 			tmp_array = shelf_array;
 		}
 		else {
